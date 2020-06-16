@@ -1,8 +1,8 @@
-from jinx.database.base.query_superposition import QuerySuperposition
-from jinx.database import schemas
 from mongoengine.errors import MultipleObjectsReturned
-import mongoengine as me
+from .query_superposition import QuerySuperposition
 from requests import get
+from .. import schemas
+import mongoengine as me
 import os
 
 

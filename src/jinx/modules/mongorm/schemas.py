@@ -50,6 +50,7 @@ class Job(mongoengine.Document):
     # Optional fields
     description = mongoengine.StringField()
     tags = mongoengine.ListField()
+    thumbnail = mongoengine.StringField()
 
     def __str__(self):
         return "Job Object: {}".format(self.label)

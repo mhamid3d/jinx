@@ -1,3 +1,5 @@
+#!/bin/bash
+
 unset MONGO_DATABASE
 unset MONGO_PORT
 unset MONGO_EXT_IP

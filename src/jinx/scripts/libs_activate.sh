@@ -1,1 +1,19 @@
-export PYTHONPATH=$PYTHONPATH:/builds/python/python27_libs/lib/python2.7/site-packages
+#!/bin/bash
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+export CONDALIBS=$CONDA_PREFIX/../py27libs/lib/python2.7
+export JINX_DEV=$DIR/../modules
+
+if [ -z "$PYTHONPATH" ]
+then
+	export PYTHONPATH=$CONDALIBS/site-packages:$JINX_DEV
+else
+	export PYTHONPATH=$PYTHONPATH:$CONDALIBS/site-packages:$JINX_DEV
+fi

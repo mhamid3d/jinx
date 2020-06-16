@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export MONGO_DATABASE=jinx
 export MONGO_PORT=18732
 export MONGO_EXT_IP=24.200.206.122

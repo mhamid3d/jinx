@@ -1,6 +1,5 @@
 from qtpy import QtWidgets, QtGui, QtCore
-from jinx.database import schemas, getHandler
-import mongoengine as me
+from mongorm import schemas, getHandler
 import qdarkstyle
 import datetime
 import logging
@@ -149,6 +148,7 @@ class BaseJobWidget(BaseJinxWidget):
 
         self.resolutionWidget.setContentsMargins(0, 0, 0, 0)
         self.resolutionLayout.setContentsMargins(0, 0, 0, 0)
+        self.resolutionLayout.setAlignment(QtCore.Qt.AlignLeft)
 
         self.hResolutionWidget = QtWidgets.QSpinBox()
         self.vResolutionWidget = QtWidgets.QSpinBox()
@@ -215,6 +215,7 @@ class BaseStemWidget(BaseJinxWidget):
         MIN = MAX * -1
         self._framerangeWidget = QtWidgets.QWidget()
         self._framerangeLayout = QtWidgets.QHBoxLayout(self._framerangeWidget)
+        self._framerangeLayout.setAlignment(QtCore.Qt.AlignLeft)
         self._framerangeWidget.setLayout(self._framerangeLayout)
         self.beginFrameWidget = QtWidgets.QSpinBox()
         self.endFrameWidget = QtWidgets.QSpinBox()
@@ -337,6 +338,7 @@ class BaseStalkWidget(BaseJinxWidget):
         self._framerangeWidget = QtWidgets.QWidget()
         self._framerangeLayout = QtWidgets.QHBoxLayout(self._framerangeWidget)
         self._framerangeWidget.setLayout(self._framerangeLayout)
+        self._framerangeLayout.setAlignment(QtCore.Qt.AlignLeft)
         self.beginFrameWidget = QtWidgets.QSpinBox()
         self.endFrameWidget = QtWidgets.QSpinBox()
         self.beginFrameWidget.setMinimum(MIN)
@@ -394,6 +396,7 @@ class BaseLeafWidget(BaseJinxWidget):
 
         self.resolutionWidget.setContentsMargins(0, 0, 0, 0)
         self.resolutionLayout.setContentsMargins(0, 0, 0, 0)
+        self.resolutionLayout.setAlignment(QtCore.Qt.AlignLeft)
 
         self.hResolutionWidget = QtWidgets.QSpinBox()
         self.vResolutionWidget = QtWidgets.QSpinBox()
@@ -414,6 +417,7 @@ class BaseLeafWidget(BaseJinxWidget):
         self._framerangeWidget = QtWidgets.QWidget()
         self._framerangeLayout = QtWidgets.QHBoxLayout(self._framerangeWidget)
         self._framerangeWidget.setLayout(self._framerangeLayout)
+        self._framerangeLayout.setAlignment(QtCore.Qt.AlignLeft)
         self.beginFrameWidget = QtWidgets.QSpinBox()
         self.endFrameWidget = QtWidgets.QSpinBox()
         self.beginFrameWidget.setMinimum(MIN)
@@ -468,7 +472,7 @@ class DatabasePublisher(QtWidgets.QWidget):
     def __init__(self):
         super(DatabasePublisher, self).__init__()
         self.setWindowTitle('Jinx Database Publisher')
-        self.resize(600, 800)
+        self.resize(900, 500)
         self.setWindowIcon(QtGui.QIcon('/home/mhamid/Pictures/jinx-pipe-icon.png'))
         self.mainLayout = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.mainLayout)
@@ -506,9 +510,19 @@ class DatabasePublisher(QtWidgets.QWidget):
             schema_widget.generate_id()
 
 
-if __name__ == '__main__':
+def run_cli():
     app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyside2())
+    font = QtGui.QFont()
     win = DatabasePublisher()
     win.show()
     sys.exit(app.exec_())
+
+
+def run_maya():
+    win = DatabasePublisher()
+    win.setStyleSheet(qdarkstyle.load_stylesheet_pyside2())
+    win.show()
+
+
+run_cli()
