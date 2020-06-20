@@ -49,7 +49,7 @@ class JinxItemModel(QtGui.QStandardItemModel):
         self.root = self.invisibleRootItem()
         for stem in self.db_handler.stem().all():
             label_item = QtGui.QStandardItem(stem.label)
-            label_item.setIcon(QtGui.QIcon(stem.thumbnail))
+            label_item.setIcon(QtGui.QIcon("/home/mhamid/dev/jinx/src/jinx/modules/jinxicon/img/ICON_SHOT_LRG.png"))
             modified_item = QtGui.QStandardItem(str(stem.modified))
             created_item = QtGui.QStandardItem(str(stem.created))
             created_by_item = QtGui.QStandardItem(stem.created_by)
@@ -78,6 +78,7 @@ class MainWindow(QtWidgets.QWidget):
         self.setLayout(self.mainLayout)
         self.resize(1000, 1000)
         self.tree_view = QtWidgets.QTreeView()
+        self.tree_view.setIconSize(QtCore.QSize(32, 32))
         self.jinx_model = JinxItemModel(tree_view=self.tree_view)
         self.tree_view.setModel(self.jinx_model)
         self.tree_view.setUniformRowHeights(True)

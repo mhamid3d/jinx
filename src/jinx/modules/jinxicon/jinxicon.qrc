@@ -1,0 +1,37 @@
+<RCC>
+  <qresource prefix="jinxicon">
+    <file>img/ICON_ASSET_LRG.png</file>
+    <file>img/ICON_ASSET_MED.png</file>
+    <file>img/ICON_ASSET_SML.png</file>
+    <file>img/ICON_FILTER_LRG.png</file>
+    <file>img/ICON_FILTER_MED.png</file>
+    <file>img/ICON_FILTER_SML.png</file>
+    <file>img/ICON_FOLDER_LRG.png</file>
+    <file>img/ICON_FOLDER_MED.png</file>
+    <file>img/ICON_FOLDER_SML.png</file>
+    <file>img/ICON_JOB_LRG.png</file>
+    <file>img/ICON_JOB_MED.png</file>
+    <file>img/ICON_JOB_SML.png</file>
+    <file>img/ICON_PLUS_LRG.png</file>
+    <file>img/ICON_PLUS_MED.png</file>
+    <file>img/ICON_PLUS_SML.png</file>
+    <file>img/ICON_RELOAD_LRG.png</file>
+    <file>img/ICON_RELOAD_MED.png</file>
+    <file>img/ICON_RELOAD_SML.png</file>
+    <file>img/ICON_SCROLL_LRG.png</file>
+    <file>img/ICON_SCROLL_MED.png</file>
+    <file>img/ICON_SCROLL_SML.png</file>
+    <file>img/ICON_SEARCH_LRG.png</file>
+    <file>img/ICON_SEARCH_MED.png</file>
+    <file>img/ICON_SEARCH_SML.png</file>
+    <file>img/ICON_SEQUENCE_LRG.png</file>
+    <file>img/ICON_SEQUENCE_MED.png</file>
+    <file>img/ICON_SEQUENCE_SML.png</file>
+    <file>img/ICON_SHOT_LRG.png</file>
+    <file>img/ICON_SHOT_MED.png</file>
+    <file>img/ICON_SHOT_SML.png</file>
+    <file>img/ICON_SLIDERS_LRG.png</file>
+    <file>img/ICON_SLIDERS_MED.png</file>
+    <file>img/ICON_SLIDERS_SML.png</file>
+  </qresource>
+</RCC>

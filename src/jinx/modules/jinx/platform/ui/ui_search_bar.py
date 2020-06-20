@@ -1,11 +1,12 @@
 from qtpy import QtWidgets, QtGui, QtCore
+from jinxicon import icon_paths
 
 
 class UiSearchBar(QtWidgets.QLineEdit):
     def __init__(self, height=42):
         super(UiSearchBar, self).__init__()
         self.setMinimumHeight(height)
-        self.setIcon(QtGui.QIcon('/home/mhamid/Downloads/jinx_icon/ICON_SEARCH_LRG.png'))
+        self.setIcon(QtGui.QIcon(icon_paths.ICON_SEARCH_LRG))
         self.setStyleSheet("""
                     QLineEdit{
                         border-radius: 2px;

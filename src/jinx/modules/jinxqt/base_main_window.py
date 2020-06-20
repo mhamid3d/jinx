@@ -1,9 +1,9 @@
 from qtpy import QtWidgets, QtGui, QtCore
 
 
-class UiBaseWindow(QtWidgets.QMainWindow):
+class BaseMainWindow(QtWidgets.QMainWindow):
     def __init__(self):
-        super(UiBaseWindow, self).__init__()
+        super(BaseMainWindow, self).__init__()
         self.central_widget = QtWidgets.QWidget()
         self.setCentralWidget(self.central_widget)
         self.mainLayout = QtWidgets.QHBoxLayout()
