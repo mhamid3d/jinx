@@ -126,7 +126,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtooltip
 QToolTip {
   background-color: #148CD2;
   border: 1px solid #2B2B2B;
-  color: #2B2B2B;
+  color: white;
   /* Remove padding, for fix combo box tooltip */
   padding: 0px;
   /* Remove opacity, fix #174 - may need to use RGBA */

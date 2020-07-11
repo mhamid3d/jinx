@@ -3,15 +3,45 @@
     <file>img/ICON_ASSET_LRG.png</file>
     <file>img/ICON_ASSET_MED.png</file>
     <file>img/ICON_ASSET_SML.png</file>
+    <file>img/ICON_AVAILABLE_LRG.png</file>
+    <file>img/ICON_AVAILABLE_MED.png</file>
+    <file>img/ICON_AVAILABLE_SML.png</file>
+    <file>img/ICON_CHECKGREEN_LRG.png</file>
+    <file>img/ICON_CHECKGREEN_MED.png</file>
+    <file>img/ICON_CHECKGREEN_SML.png</file>
+    <file>img/ICON_CLOCK_LRG.png</file>
+    <file>img/ICON_CLOCK_MED.png</file>
+    <file>img/ICON_CLOCK_SML.png</file>
+    <file>img/ICON_COMMENT_LRG.png</file>
+    <file>img/ICON_COMMENT_MED.png</file>
+    <file>img/ICON_COMMENT_SML.png</file>
+    <file>img/ICON_FILE_LRG.png</file>
+    <file>img/ICON_FILE_MED.png</file>
+    <file>img/ICON_FILE_SML.png</file>
     <file>img/ICON_FILTER_LRG.png</file>
     <file>img/ICON_FILTER_MED.png</file>
     <file>img/ICON_FILTER_SML.png</file>
+    <file>img/ICON_FINGERPRINT_LRG.png</file>
+    <file>img/ICON_FINGERPRINT_MED.png</file>
+    <file>img/ICON_FINGERPRINT_SML.png</file>
     <file>img/ICON_FOLDER_LRG.png</file>
     <file>img/ICON_FOLDER_MED.png</file>
     <file>img/ICON_FOLDER_SML.png</file>
+    <file>img/ICON_IMAGE_LRG.png</file>
+    <file>img/ICON_IMAGE_MED.png</file>
+    <file>img/ICON_IMAGE_SML.png</file>
+    <file>img/ICON_INPROGRESS_LRG.png</file>
+    <file>img/ICON_INPROGRESS_MED.png</file>
+    <file>img/ICON_INPROGRESS_SML.png</file>
     <file>img/ICON_JOB_LRG.png</file>
     <file>img/ICON_JOB_MED.png</file>
     <file>img/ICON_JOB_SML.png</file>
+    <file>img/ICON_LOCATION_LRG.png</file>
+    <file>img/ICON_LOCATION_MED.png</file>
+    <file>img/ICON_LOCATION_SML.png</file>
+    <file>img/ICON_PACKAGE_LRG.png</file>
+    <file>img/ICON_PACKAGE_MED.png</file>
+    <file>img/ICON_PACKAGE_SML.png</file>
     <file>img/ICON_PLUS_LRG.png</file>
     <file>img/ICON_PLUS_MED.png</file>
     <file>img/ICON_PLUS_SML.png</file>
@@ -33,5 +63,14 @@
     <file>img/ICON_SLIDERS_LRG.png</file>
     <file>img/ICON_SLIDERS_MED.png</file>
     <file>img/ICON_SLIDERS_SML.png</file>
+    <file>img/ICON_USER_LRG.png</file>
+    <file>img/ICON_USER_MED.png</file>
+    <file>img/ICON_USER_SML.png</file>
+    <file>img/ICON_VERSION_LRG.png</file>
+    <file>img/ICON_VERSION_MED.png</file>
+    <file>img/ICON_VERSION_SML.png</file>
+    <file>img/ICON_XRED_LRG.png</file>
+    <file>img/ICON_XRED_MED.png</file>
+    <file>img/ICON_XRED_SML.png</file>
   </qresource>
 </RCC>

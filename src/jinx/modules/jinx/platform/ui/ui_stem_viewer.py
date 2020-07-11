@@ -1,7 +1,7 @@
 from qtpy import QtWidgets, QtGui, QtCore
 from jinxicon import icon_paths
 from jinx.platform.ui import ui_search_bar
-from jinxqt.platform import reload_button, filter_button
+from jinxqt.widget import reload_button, filter_button
 
 from mongorm import DbHandler
 
@@ -71,6 +71,36 @@ class JinxAssetModel(JinxBaseModel):
                     label_item.appendRow(shot_list)
 
 
+class StemTree(QtWidgets.QTreeView):
+    def __init__(self):
+        super(StemTree, self).__init__()
+        self.setHeaderHidden(True)
+        self.setSelectionMode(QtWidgets.QTreeView.ExtendedSelection)
+        self.setIconSize(QtCore.QSize(20, 20))
+        self.setUniformRowHeights(True)
+        self.setExpandsOnDoubleClick(False)
+
+    # def mousePressEvent(self, event):
+    #     super(StemTree, self).mousePressEvent(event)
+    #     index = self.indexAt(event.pos())
+    #     if index.isValid():
+    #         item = self.model().itemFromIndex(index)
+    #         children = self.recursiveChildren(item)
+    #         sel_model = self.selectionModel()
+    #         sel_model.select(index, QtCore.QItemSelectionModel.Select)
+    #         for child in children:
+    #             sel_model.select(child.index(), QtCore.QItemSelectionModel.Select)
+
+    # def recursiveChildren(self, item):
+    #     items = []
+    #     for i in range(item.rowCount()):
+    #         child = item.child(i)
+    #         items.append(child)
+    #         items += self.recursiveChildren(child)
+    #
+    #     return items
+
+
 class UiStemViewer(QtWidgets.QWidget):
     def __init__(self):
         super(UiStemViewer, self).__init__()
@@ -97,6 +127,7 @@ class UiStemViewer(QtWidgets.QWidget):
         self.handle_signals()
         self.build_layouts()
         self.setup_styles()
+        self.populate_stems()
 
     def create_widgets(self):
         self.project_browser_label = QtWidgets.QLabel('Project Browser')
@@ -104,7 +135,7 @@ class UiStemViewer(QtWidgets.QWidget):
         self.production_button = QtWidgets.QPushButton()
         self.search_bar = ui_search_bar.UiSearchBar(height=30)
         self.stem_type_button_grp = QtWidgets.QButtonGroup()
-        self.stem_tree = QtWidgets.QTreeView()
+        self.stem_tree = StemTree()
         self.reload_button = reload_button.ReloadButton()
         self.filter_button = filter_button.FilterButton()
 
@@ -137,20 +168,13 @@ class UiStemViewer(QtWidgets.QWidget):
         self.stem_type_button_grp.addButton(self.assets_button)
         self.stem_type_button_grp.addButton(self.production_button)
 
-        self.stem_tree.setHeaderHidden(True)
-        self.stem_tree.setSelectionMode(QtWidgets.QTreeView.ExtendedSelection)
-        self.stem_tree.setIconSize(QtCore.QSize(20, 20))
-        self.stem_tree.setUniformRowHeights(True)
-        self.stem_tree.setExpandsOnDoubleClick(False)
-
         self.search_bar.setPlaceholderText("Search for an asset, sequence, or shot...")
 
-        self.handle_stem_change()
-
     def handle_signals(self):
-        self.stem_type_button_grp.buttonClicked.connect(self.handle_stem_change)
+        self.stem_type_button_grp.buttonClicked.connect(self.populate_stems)
+        self.reload_button.clicked.connect(self.populate_stems)
 
-    def handle_stem_change(self):
+    def populate_stems(self):
         if self.assets_button.isChecked():
             self.stem_tree.setModel(JinxAssetModel())
         elif self.production_button.isChecked():
@@ -184,7 +208,7 @@ class UiStemViewer(QtWidgets.QWidget):
                 border-bottom-right-radius: 4px;
             }
             QPushButton::checked{
-                background: #148CD2;
+                background: #0e6497;
             }
             QPushButton::!checked:hover{
                 background: #5e5e5e;

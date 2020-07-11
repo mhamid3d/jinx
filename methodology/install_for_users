@@ -1,0 +1,7 @@
+############################
+INSTALL REQUIREMENTS
+############################
+
+1) Py27Base Conda Environment
+2) Py27Libs Conda Environment
+3) Create ".jinx" folder in user home directory. (%HOMEPATH% for Windows, $HOME for Linux, don't know for Mac Os)

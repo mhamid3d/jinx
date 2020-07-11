@@ -1,5 +1,5 @@
 from qtpy import QtWidgets, QtGui, QtCore
-from mongorm import schemas, getHandler
+from mongorm import getHandler, getFilter, interfaces
 import qdarkstyle
 import datetime
 import logging
@@ -494,12 +494,12 @@ class DatabasePublisher(QtWidgets.QWidget):
         self.allTabs = [self.schemasTabWidget.widget(i) for i in range(self.schemasTabWidget.count())]
 
     def setup_tabs(self):
-        self.schemasTabWidget.addTab(BaseJobWidget(schema=schemas.Job), 'Job')
-        self.schemasTabWidget.addTab(BaseStemWidget(schema=schemas.Stem), 'Stem')
-        self.schemasTabWidget.addTab(BaseTwigWidget(schema=schemas.Twig), 'Twig')
-        self.schemasTabWidget.addTab(BaseStalkWidget(schema=schemas.Stalk), 'Stalk')
-        self.schemasTabWidget.addTab(BaseLeafWidget(schema=schemas.Leaf), 'Leaf')
-        self.schemasTabWidget.addTab(BaseSeedWidget(schema=schemas.Seed), 'Seed')
+        self.schemasTabWidget.addTab(BaseJobWidget(schema=interfaces.Job), 'Job')
+        self.schemasTabWidget.addTab(BaseStemWidget(schema=interfaces.Stem), 'Stem')
+        self.schemasTabWidget.addTab(BaseTwigWidget(schema=interfaces.Twig), 'Twig')
+        self.schemasTabWidget.addTab(BaseStalkWidget(schema=interfaces.Stalk), 'Stalk')
+        self.schemasTabWidget.addTab(BaseLeafWidget(schema=interfaces.Leaf), 'Leaf')
+        self.schemasTabWidget.addTab(BaseSeedWidget(schema=interfaces.Seed), 'Seed')
 
     def publish(self, all=False):
         publish_widget = self.allTabs if all else [self.schemasTabWidget.currentWidget()]

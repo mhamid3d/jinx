@@ -1,7 +1,5 @@
-from mongoengine.errors import MultipleObjectsReturned
-from .query_superposition import QuerySuperposition
+from mongorm.core.datainterface import DataInterface
 from requests import get
-from .. import schemas
 import mongoengine as me
 import os
 
@@ -21,40 +19,13 @@ class DbHandler(object):
     def __init__(self):
         me.connect(db=self._DATABASE, host=self._HOST, port=self._PORT)
 
-    def job(self, **kwargs):
-        result = schemas.Job.objects(**kwargs)
-        return QuerySuperposition(query_result=result)
+    def __getitem__(self, item):
+        assert item in self.list_interface_names(), "Invalid interface: {}".format(item)
+        return DataInterface(item)
 
-    def stem(self, **kwargs):
-        result = schemas.Stem.objects(**kwargs)
-        return QuerySuperposition(query_result=result)
+    def list_interface_names(self):
+        db = me.connection.get_db()
+        return db.list_collection_names()
 
-    def twig(self, **kwargs):
-        result = schemas.Twig.objects(**kwargs)
-        return QuerySuperposition(query_result=result)
-
-    def stalk(self, **kwargs):
-        result = schemas.Stalk.objects(**kwargs)
-        return QuerySuperposition(query_result=result)
-
-    def leaf(self, **kwargs):
-        result = schemas.Leaf.objects(**kwargs)
-        return QuerySuperposition(query_result=result)
-
-    def seed(self, **kwargs):
-        result = schemas.Seed.objects(**kwargs)
-        return QuerySuperposition(query_result=result)
-
-    def get_from_uuid(self, uuid):
-        result = []
-        for query_type in [self.job, self.stem, self.twig, self.stalk, self.leaf, self.seed]:
-            for object in query_type(uuid=uuid).all():
-                result.append(object)
-        if result:
-            try:
-                assert len(result) == 1
-                return result[0]
-            except AssertionError:
-                raise MultipleObjectsReturned
-        else:
-            return None
+    def getDataInterface(self, dataInterface):
+        return self.__getitem__(dataInterface)

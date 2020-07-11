@@ -4,7 +4,7 @@ from jinx.platform.ui import (
     ui_stem_viewer,
     ui_twig_viewer,
     )
-from jinxqt import base_main_window
+from jinxqt.widget import base_main_window
 import qdarkstyle
 import sys
 
